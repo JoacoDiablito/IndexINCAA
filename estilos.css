@@ -1,0 +1,29 @@
+.img {
+  background-image: url(small.jpg);
+  background-image: 
+    -webkit-image-set(
+      "small.jpg" 1x,
+      "medium.jpg" 2x,
+    );
+  background-image: 
+    image-set(
+      "small.jpg" 1x,
+      "medium.jpg" 2x,
+    );
+}
+@media
+  (min-width: 800px) {
+  .img {
+    background-image: url(large.jpg);
+    background-image: 
+      -webkit-image-set(
+        "large.jpg" 1x,
+        "extralarge.jpg" 2x,
+      );
+    background-image: 
+      image-set(
+        "large.jpg" 1x,
+        "extralarge.jpg" 2x,
+      );
+  }
+}
