@@ -1,0 +1,62 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Add this to <head> -->
+
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+    <!-- Load polyfills to support older browsers -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+        crossorigin="anonymous"></script>
+
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <b-container>
+            <b-button size="sm" @click="toggle">
+                {{ show ? 'Hide' : 'Show' }} Alert
+            </b-button>
+            <b-alert v-model="show" class="mt-3" dismissible @dismissed="dismissed">
+                Hello {{ name }}!
+            </b-alert>
+        </b-container>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+
+            data() {
+                return {
+                    name: 'BootstrapVue',
+                    show: true
+                }
+            },
+            watch: {
+                show(newVal) {
+                    console.log('Alert is now ' + (newVal ? 'visible' : 'hidden'))
+                }
+            },
+            methods: {
+                toggle() {
+                    console.log('Toggle button clicked')
+                    this.show = !this.show
+                },
+                dismissed() {
+                    console.log('Alert dismissed')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
